@@ -11,6 +11,12 @@ Spring Boot embeds a tomcat web server within the jar file when packaging as a j
 At the center of the application is the domain layer, which consists of use cases/services and domain objects. The responsibility of a service is to focus on a business use case.
 All dependecies are inverted so that changes in the lower and upper layers don't affect the business layer.
 
+Remove book is used instead of delete book and register book is used instead of add book. Remove is a more natural desciption than delete. E.g. remove a book from the library rather than delete a book out of the library. Register or add can be used, but normally a book is registered on the system.
+
+Contructor injection forces depenencies to be mandatory and it also makes mocking dependencies a lot easier. If field injection was used, then a mocking framework which can inject a mock via reflection is required.
+
+Unit tests are used to assist in the design and not just for testing.
+
 ## Code organization
 Organize by feature with expressive sturcture is used instead of organize by layer. It makes it easier to navigate and identify certain features and also introduce natural boundaries between code which can help identify when layers and/or features leak into other layers. 
 
