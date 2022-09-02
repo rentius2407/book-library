@@ -35,6 +35,45 @@ New features can also be deployed and tested in isolation.
 
 ### API
 
+### Invalid fields (null or empty)
+
+#### POST /v1/books
+Register a book with empty title and no author name. The response body will contain a response indicating the type and the fields that is either null or empty.
+
+**Request:**
+
+```
+{
+  "title": "",
+  "author": {
+    "surname":"Larsson"
+  },
+  "isbn":"14439519874"
+}
+```
+
+**Response:**
+
+```
+HTTP/1.1 400 Bad Request
+content-type: application/json
+
+{
+  "type": "FIELD_ERROR",
+  "data": [
+    {
+      "field": "title",
+      "message": "must not be blank"
+    },
+    {
+      "field": "author.name",
+      "message": "must not be blank"
+    }
+  ]
+}
+```
+
+
 #### GET /v1/books
 Find all books in the library.
 
@@ -151,7 +190,7 @@ HTTP/1.1 204 No Content
 ```
 
 #### POST /v1/books
-Add a book to the library
+Register a book
 
 **Request:**
 
@@ -178,3 +217,51 @@ Status 201 Created
 Status 409 Conflict
 ```
 
+#### PUT /v1/books/{isbn}
+Update a specific resource with the corresponding isbn. 
+
+**Request:**
+http://localhost:8080/library/v1/books/069512545
+
+```
+{
+  "title": "Catch22",
+  "author": {
+    "name": "Joseph",
+    "surname": "Heller"
+  },
+  "isbn": "069512545"
+}
+```
+
+**Response:**
+
+```
+HTTP/1.1 204 No Content
+```
+
+**Not found response:**
+No resource was found with isbn.
+
+```
+HTTP/1.1 404 Not Found
+```
+
+#### DETELE /v1/books/{isbn}
+Remove a specific resource with the corresponding isbn. 
+
+**Request:**
+http://localhost:8080/library/v1/books/069512545
+
+**Response:**
+
+```
+HTTP/1.1 204 No Content
+```
+
+**Not found response:**
+No resource was found with isbn.
+
+```
+HTTP/1.1 404 Not Found
+```
