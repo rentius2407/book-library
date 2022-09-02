@@ -199,6 +199,7 @@ HTTP/1.1 204 No Content
 Register a book
 
 **Request:**
+http://localhost:8080/library/v1/books
 
 ```
 {
