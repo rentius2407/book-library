@@ -1,4 +1,13 @@
 # RESTful book-library application
+
+## Overview
+
+The book-library application is a service which provides CRUD operations on a Book resource.
+
+The application can either be packaged as a jar or war.
+Packaging the application as a war requires an environment which has a web server. 
+Spring Boot embeds a tomcat web server within the jar file when packaging as a jar, which means there is no need to install or configure a web server. 
+
 At the center of the application is the domain layer, which consists of use cases/services and domain objects. The responsibility of a service is to focus on a business use case.
 All dependecies are inverted so that changes in the lower and upper layers don't affect the business layer.
 
