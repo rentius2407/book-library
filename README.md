@@ -18,7 +18,7 @@ Contructor injection forces dependencies to be mandatory and it also makes mocki
 Unit tests are used to assist in the design and not just for testing.
 
 ## Code organization
-Organize by feature with expressive sturcture is used instead of organize by layer. It makes it easier to navigate and identify certain features and also introduce natural boundaries between code which can help identify when layers and/or features leak into other layers. 
+Organize by feature with expressive structure is used instead of organize by layer. It makes it easier to navigate and identify certain features and also introduce natural boundaries between code which can help identify when layers and/or features leak into other layers. 
 
 ![image](https://user-images.githubusercontent.com/5244466/188117238-f770b164-7039-4055-a8e7-c34098e2bfe9.png)
 
